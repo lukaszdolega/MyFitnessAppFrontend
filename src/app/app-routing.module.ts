@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { DefaultComponent } from './layouts/default/default.component';
 import { HomeComponent } from './modules/home/home.component';
 import { TrainingComponent } from './modules/training/training.component';
+import { FullpageComponent } from './layouts/fullpage/fullpage.component';
+import { LoginComponent } from './modules/login/login.component';
 
 const routes: Routes = [
   {
@@ -10,6 +12,11 @@ const routes: Routes = [
       {path: '', component: HomeComponent},
       {path: 'trainings', component: TrainingComponent},
 
+    ]
+  },
+  {
+    path:'', component: FullpageComponent, children: [
+      {path: 'login', component: LoginComponent}
     ]
   }
 ];
