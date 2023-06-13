@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Training } from './model/training';
 import { TrainingService } from './training.service';
+import { Page } from 'src/app/shared/model/page';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-training',
@@ -8,7 +10,8 @@ import { TrainingService } from './training.service';
   styleUrls: ['./training.component.scss']
 })
 export class TrainingComponent implements OnInit {
-  trainings: Training[] = [];
+  
+  page?: Page<Training>;
 
   constructor(private trainingService: TrainingService) { }
 
@@ -17,7 +20,15 @@ export class TrainingComponent implements OnInit {
   }
 
   getTrainings() {
-    this.trainingService.getTrainings()
-    .subscribe(trainings => this.trainings = trainings);
+    this.getTrainingPage(0, 10);
+  }
+
+  onPageEvent(event: PageEvent){
+    this.getTrainingPage(event.pageIndex, event.pageSize);
+  }
+
+  private getTrainingPage(page: number, size: number){
+    this.trainingService.getTrainings(page, size)
+    .subscribe(page => this.page = page)
   }
 }
