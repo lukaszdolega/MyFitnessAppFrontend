@@ -12,7 +12,7 @@ import { startWith, switchMap } from 'rxjs';
 })
 export class AdminTrainingComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  displayedColumns: string[] = ["id", "name", "category", "content", "level"]
+  displayedColumns: string[] = ["id", "name", "category", "content", "level", "actions"]
   totalElements: number = 0;
   data: AdminTraining[] = [];
 
