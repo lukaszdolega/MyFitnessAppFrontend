@@ -1,1 +1,18 @@
-<p>training works!</p>
+<h1>Trainings</h1>
+<mat-card *ngFor="let training of trainings">
+    <div flexLayout="row">
+        <div flexLayout="column" fxFlex>
+            <mat-card-title class="trainingName">{{training.name}}</mat-card-title>
+            <mat-card-subtitle class="trainingCategory">{{training.category}}</mat-card-subtitle>
+            <div flexLayout="row">
+                <mat-card-content fxFlex class="trainingContent">{{training.content}}</mat-card-content>
+            </div>
+        </div>
+        <div>
+            <div class="level">{{training.level}}</div>
+        </div>
+    </div>
+    <mat-card-actions align="end" fxLayoutGap="10">
+        <button mat-flat-button color="primary">Details</button>
+    </mat-card-actions>
+</mat-card>

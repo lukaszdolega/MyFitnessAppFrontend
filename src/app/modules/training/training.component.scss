@@ -1,0 +1,25 @@
+@import '../../../variables.scss';
+:host{
+    display: flex;
+    flex-direction: column;
+}
+.trainingContent{
+    font-size:15px;
+}
+.trainingName{
+    margin-left: 15px;
+}
+.trainingCategory{
+    margin-left: 15px;
+    
+}
+.level{
+    font-size:18px;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-right: 10px;
+    color: $warn;
+}
+mat-card{
+    margin-bottom: 25px;
+}
