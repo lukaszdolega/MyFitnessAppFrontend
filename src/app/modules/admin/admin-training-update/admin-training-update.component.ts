@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminTrainingUpdate } from './model/adminTrainingUpdate';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AdminTrainingUpdateService } from './admin-training-update.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -26,10 +26,10 @@ export class AdminTrainingUpdateComponent implements OnInit {
     this.getTraining();
 
     this.trainingForm = this.formBuilder.group({
-      name: [''],
-      category: [''],
-      content: [''],
-      level: [''],
+      name: ['', [Validators.required, Validators.minLength(4)]],
+      category: ['', [Validators.required, Validators.minLength(4)]],
+      content: ['', [Validators.required, Validators.minLength(4)]],
+      level: ['', [Validators.required, Validators.minLength(4)]]
     });
   }
 

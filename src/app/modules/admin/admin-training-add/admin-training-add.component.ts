@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AdminTrainingAddService } from './admin-training-add.service';
@@ -22,10 +22,10 @@ export class AdminTrainingAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.trainingForm = this.formBuilder.group({
-      name: [''],
-      category: [''],
-      content: [''],
-      level: ['']
+      name: ['', [Validators.required, Validators.minLength(4)]],
+      category: ['', [Validators.required, Validators.minLength(4)]],
+      content: ['', [Validators.required, Validators.minLength(4)]],
+      level: ['', [Validators.required, Validators.minLength(4)]]
     });
   }
 

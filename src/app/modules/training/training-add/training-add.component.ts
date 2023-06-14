@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TrainingAddService } from './training-add.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -22,10 +22,10 @@ export class TrainingAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.trainingForm = this.formBuilder.group({
-      name: [''],
-      category: [''],
-      content: [''],
-      level: ['']
+      name: ['', [Validators.required, Validators.minLength(4)]],
+      category: ['', [Validators.required, Validators.minLength(4)]],
+      content: ['', [Validators.required, Validators.minLength(4)]],
+      level: ['', [Validators.required, Validators.minLength(4)]]
     });
   }
 
@@ -35,5 +35,21 @@ export class TrainingAddComponent implements OnInit {
       this.router.navigate(["/trainings"])
         .then(() => this.snackBar.open("New training has been saved", "", {duration:3000}))
     })
+  }
+
+  get name(){
+    return this.trainingForm.get("name");
+}
+
+  get category(){
+    return this.trainingForm.get("category");
+  }
+
+  get content(){
+    return this.trainingForm.get("content");
+  }
+
+  get level(){
+    return this.trainingForm.get("level");
   }
 }
