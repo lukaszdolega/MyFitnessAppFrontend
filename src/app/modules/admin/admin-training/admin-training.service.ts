@@ -14,4 +14,8 @@ export class AdminTrainingService {
   getTrainings(page: number, size: number): Observable<Page<AdminTraining>> {
     return this.http.get<Page<AdminTraining>>(`/api/admin/trainings?page=${page}&size=${size}`);
   }
+
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>('/api/admin/trainings/' + id);
+  }
 }

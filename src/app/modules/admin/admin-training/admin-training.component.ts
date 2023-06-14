@@ -4,6 +4,8 @@ import { AdminComponent } from '../admin.component';
 import { AdminTraining } from './model/adminTraining';
 import { AdminTrainingService } from './admin-training.service';
 import { startWith, switchMap } from 'rxjs';
+import { MatTable } from '@angular/material/table';
+import { AdminConfirmDialogService } from '../admin-confirm-dialog/admin-confirm-dialog.service';
 
 @Component({
   selector: 'app-admin-training',
@@ -12,11 +14,16 @@ import { startWith, switchMap } from 'rxjs';
 })
 export class AdminTrainingComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatTable) table!: MatTable<any>;
+
   displayedColumns: string[] = ["id", "name", "category", "content", "level", "actions"]
   totalElements: number = 0;
   data: AdminTraining[] = [];
 
-  constructor(private adminTrainingService: AdminTrainingService) { }
+  constructor(
+    private adminTrainingService: AdminTrainingService,
+    private dialogService: AdminConfirmDialogService
+    ){ }
   
   ngAfterViewInit(): void {
     this.paginator.page.pipe(
@@ -27,6 +34,24 @@ export class AdminTrainingComponent implements AfterViewInit {
     ).subscribe(data => {
       this.totalElements = data.totalElements;
       this.data = data.content;
+    });
+  }
+
+  confirmDelete(element: AdminTraining){
+    this.dialogService.openConfirmDialog("Are you sure you want to delete training plan?")
+    .afterClosed()
+    .subscribe(result => {
+      if(result) {
+        this.adminTrainingService.delete(element.id)
+          .subscribe(() => {
+            this.data.forEach((value, index) => {
+              if(element == value) {
+                this.data.splice(index, 1);
+                this.table.renderRows();
+              }
+            })
+          });
+      }
     });
   }
 }

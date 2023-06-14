@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AdminTrainingUpdateComponent } from 'src/app/modules/admin/admin-training-update/admin-training-update.component';
 import { AdminTrainingAddComponent } from 'src/app/modules/admin/admin-training-add/admin-training-add.component';
 import { AdminTrainingFormComponent } from 'src/app/modules/admin/admin-training-form/admin-training-form.component';
+import { AdminConfirmDialogComponent } from 'src/app/modules/admin/admin-confirm-dialog/admin-confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AdminTrainingFormComponent } from 'src/app/modules/admin/admin-training
     AdminTrainingComponent,
     AdminTrainingUpdateComponent,
     AdminTrainingAddComponent,
-    AdminTrainingFormComponent
+    AdminTrainingFormComponent,
+    AdminConfirmDialogComponent
   ],
   imports: [
     CommonModule,
