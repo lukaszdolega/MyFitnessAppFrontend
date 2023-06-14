@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { LoginComponent } from 'src/app/modules/login/login.component';
+import { TrainingAddComponent } from 'src/app/modules/training/training-add/training-add.component';
 
 
 

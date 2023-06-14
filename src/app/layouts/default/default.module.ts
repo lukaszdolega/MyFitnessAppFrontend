@@ -6,6 +6,8 @@ import { TrainingComponent } from 'src/app/modules/training/training.component';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { TrainingAddComponent } from 'src/app/modules/training/training-add/training-add.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -13,13 +15,15 @@ import { SharedModule } from 'src/app/shared/shared.module';
   declarations: [
     DefaultComponent,
     HomeComponent,
-    TrainingComponent
+    TrainingComponent,
+    TrainingAddComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     FlexLayoutModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule,
   ]
 })
 export class DefaultModule { }
