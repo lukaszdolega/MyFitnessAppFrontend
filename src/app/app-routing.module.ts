@@ -9,6 +9,7 @@ import { FullpageadminComponent } from './layouts/fullpageadmin/fullpageadmin.co
 import { AdminComponent } from './modules/admin/admin.component';
 import { AdminTrainingComponent } from './modules/admin/admin-training/admin-training.component';
 import { AdminTrainingUpdateComponent } from './modules/admin/admin-training-update/admin-training-update.component';
+import { AdminTrainingAddComponent } from './modules/admin/admin-training-add/admin-training-add.component';
 
 const routes: Routes = [
   {
@@ -27,7 +28,8 @@ const routes: Routes = [
       path:'', component: FullpageadminComponent, children: [
         {path: 'admin', component: AdminComponent},
         {path: 'admin/trainings', component: AdminTrainingComponent},
-        {path: 'admin/trainings/update/:id', component: AdminTrainingUpdateComponent}
+        {path: 'admin/trainings/update/:id', component: AdminTrainingUpdateComponent},
+        {path: 'admin/trainings/add', component: AdminTrainingAddComponent}
       ]
     }
   ];
