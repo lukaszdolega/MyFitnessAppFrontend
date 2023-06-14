@@ -8,6 +8,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { TrainingAddComponent } from 'src/app/modules/training/training-add/training-add.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TrainingDetailsComponent } from 'src/app/modules/training-details/training-details.component';
 
 
 
@@ -16,7 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     DefaultComponent,
     HomeComponent,
     TrainingComponent,
-    TrainingAddComponent
+    TrainingAddComponent,
+    TrainingDetailsComponent
   ],
   imports: [
     CommonModule,

@@ -25,7 +25,8 @@ export class AdminTrainingAddComponent implements OnInit {
       name: ['', [Validators.required, Validators.minLength(4)]],
       category: ['', [Validators.required, Validators.minLength(4)]],
       content: ['', [Validators.required, Validators.minLength(4)]],
-      level: ['', [Validators.required, Validators.minLength(4)]]
+      level: ['', [Validators.required, Validators.minLength(4)]],
+      slug: ['', [Validators.required, Validators.minLength(4)]]
     });
   }
 

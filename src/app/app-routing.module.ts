@@ -11,6 +11,7 @@ import { AdminTrainingComponent } from './modules/admin/admin-training/admin-tra
 import { AdminTrainingUpdateComponent } from './modules/admin/admin-training-update/admin-training-update.component';
 import { AdminTrainingAddComponent } from './modules/admin/admin-training-add/admin-training-add.component';
 import { TrainingAddComponent } from './modules/training/training-add/training-add.component';
+import { TrainingDetailsComponent } from './modules/training-details/training-details.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,7 @@ const routes: Routes = [
       {path: '', component: HomeComponent},
       {path: 'trainings', component: TrainingComponent},
       {path: 'trainings/add', component: TrainingAddComponent},
-
+      {path: 'trainings/:slug', component: TrainingDetailsComponent},
     ]
   },
   {

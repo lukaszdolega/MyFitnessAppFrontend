@@ -25,7 +25,8 @@ export class TrainingAddComponent implements OnInit {
       name: ['', [Validators.required, Validators.minLength(4)]],
       category: ['', [Validators.required, Validators.minLength(4)]],
       content: ['', [Validators.required, Validators.minLength(4)]],
-      level: ['', [Validators.required, Validators.minLength(4)]]
+      level: ['', [Validators.required, Validators.minLength(4)]],
+      slug: ['', [Validators.required, Validators.minLength(4)]]
     });
   }
 
@@ -51,5 +52,9 @@ export class TrainingAddComponent implements OnInit {
 
   get level(){
     return this.trainingForm.get("level");
+  }
+
+  get slug(){
+    return this.trainingForm.get("slug");
   }
 }

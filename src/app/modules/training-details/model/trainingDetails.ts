@@ -1,5 +1,4 @@
-export interface AdminTrainingUpdate{
-    id: number,
+export interface TrainingDetails{
     name: string,
     content: string,
     category: string,

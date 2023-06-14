@@ -29,7 +29,8 @@ export class AdminTrainingUpdateComponent implements OnInit {
       name: ['', [Validators.required, Validators.minLength(4)]],
       category: ['', [Validators.required, Validators.minLength(4)]],
       content: ['', [Validators.required, Validators.minLength(4)]],
-      level: ['', [Validators.required, Validators.minLength(4)]]
+      level: ['', [Validators.required, Validators.minLength(4)]],
+      slug: ['', [Validators.required, Validators.minLength(4)]]
     });
   }
 
@@ -46,6 +47,7 @@ export class AdminTrainingUpdateComponent implements OnInit {
       category: this.trainingForm.get('category')?.value,
       content: this.trainingForm.get('content')?.value,
       level: this.trainingForm.get('level')?.value,
+      slug: this.trainingForm.get('slug')?.value,
     } as AdminTrainingUpdate).subscribe(training => {
       this.mapFormValues(training);
       this.snackBar.open("Training plan has been saved", '', {duration: 3000});
@@ -57,7 +59,8 @@ export class AdminTrainingUpdateComponent implements OnInit {
       name: training.name,
       category: training.category,
       content: training.content,
-      level: training.level
+      level: training.level,
+      slug: training.slug
     });
   }
 }

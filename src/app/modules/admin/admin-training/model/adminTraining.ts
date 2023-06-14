@@ -3,5 +3,6 @@ export interface AdminTraining{
     name: string,
     content: string,
     category: string,
-    level: string
+    level: string,
+    slug: string
 }
