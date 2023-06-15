@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TrainingAddService } from './training-add.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AdminCategoryNameDto } from '../../admin/admin-training-form/adminCategoryNameDto';
+import { FormCategoryService } from '../../admin/admin-training-form/form-category.service';
 
 @Component({
   selector: 'app-training-add',
@@ -12,18 +14,22 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class TrainingAddComponent implements OnInit {
 
   trainingForm!: FormGroup;
+  categories: Array<AdminCategoryNameDto> = [];
 
   constructor(
     private formBuilder: FormBuilder,
     private trainingAddService: TrainingAddService,
     private router: Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private formCategoryService: FormCategoryService
     ) { }
 
   ngOnInit(): void {
+    this.getCategories();
+
     this.trainingForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(4)]],
-      category: ['', [Validators.required, Validators.minLength(4)]],
+      categoryId: ['', [Validators.required]],
       content: ['', [Validators.required, Validators.minLength(4)]],
       level: ['', [Validators.required, Validators.minLength(4)]],
       slug: ['', [Validators.required, Validators.minLength(4)]]
@@ -38,12 +44,17 @@ export class TrainingAddComponent implements OnInit {
     })
   }
 
-  get name(){
-    return this.trainingForm.get("name");
+  getCategories(){
+    this.formCategoryService.getCategories()
+    .subscribe(categories => this.categories = categories);
 }
 
-  get category(){
-    return this.trainingForm.get("category");
+  get name(){
+    return this.trainingForm.get("name");
+  }
+
+  get categoryId(){
+    return this.trainingForm.get("categoryId");
   }
 
   get content(){

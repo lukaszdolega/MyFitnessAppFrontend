@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { AdminCategoryNameDto } from './adminCategoryNameDto';
+import { FormCategoryService } from './form-category.service';
 
 @Component({
   selector: 'app-admin-training-form',
@@ -31,18 +33,19 @@ import { FormGroup } from '@angular/forms';
             </div>
         </mat-form-field>
 
-      <mat-form-field appearance="fill">
-          <mat-label>Category</mat-label>
-          <input matInput rows="20" placeholder="Enter a training category" formControlName="category">
-          <div *ngIf="category?.invalid && (category?.dirty || category?.touched)" class="errorMessages">
-                <div *ngIf="name?.errors?.['required']">
+        <mat-form-field appearance="fill">
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="categoryId">
+                <mat-option *ngFor="let el of categories" [value]="1">
+                {{el.name}}
+                </mat-option>
+            </mat-select>
+            <div *ngIf="categoryId?.invalid && (categoryId?.dirty || categoryId?.touched)" class="erroMessages">
+                <div *ngIf="categoryId?.errors?.['required']">
                 Category is required
                 </div>
-                <div *ngIf="name?.errors?.['minlength']">
-                Category must have at least 4 characters
-                </div>
             </div>
-      </mat-form-field>
+        </mat-form-field>
 
       <mat-form-field appearance="fill">
           <mat-label>Content</mat-label>
@@ -79,16 +82,25 @@ export class AdminTrainingFormComponent implements OnInit {
 
   @Input() parentForm!: FormGroup;
 
-  ngOnInit(): void {
+  categories: Array<AdminCategoryNameDto> = [];
 
-  }
+    constructor(private formCategoryService: FormCategoryService){}
+
+    ngOnInit(): void {
+        this.getCategories();
+    }
+
+    getCategories(){
+        this.formCategoryService.getCategories()
+        .subscribe(categories => this.categories = categories);
+    }
 
   get name(){
     return this.parentForm.get("name");
   }
 
-  get category(){
-    return this.parentForm.get("category");
+  get categoryId(){
+    return this.parentForm.get("categoryId");
   }
 
   get content(){

@@ -7,8 +7,6 @@ import { RouterModule } from '@angular/router';
 import { FlexModule } from '@angular/flex-layout';
 import { MaterialModule } from './material.module';
 
-
-
 @NgModule({
   declarations: [
     FooterComponent,

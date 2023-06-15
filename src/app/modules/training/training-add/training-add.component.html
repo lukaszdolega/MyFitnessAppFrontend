@@ -25,18 +25,19 @@
         </div>
     </mat-form-field>
 
-      <mat-form-field appearance="fill">
-          <mat-label>Category</mat-label>
-          <input matInput rows="20" placeholder="Enter a training category" formControlName="category">
-          <div *ngIf="category?.invalid && (category?.dirty || category?.touched)" class="errorMessages">
-                <div *ngIf="name?.errors?.['required']">
-                Category is required
-                </div>
-                <div *ngIf="name?.errors?.['minlength']">
-                Category must have at least 4 characters
-                </div>
+    <mat-form-field appearance="fill">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="categoryId">
+            <mat-option *ngFor="let el of categories" [value]="1">
+            {{el.name}}
+            </mat-option>
+        </mat-select>
+        <div *ngIf="categoryId?.invalid && (categoryId?.dirty || categoryId?.touched)" class="erroMessages">
+            <div *ngIf="categoryId?.errors?.['required']">
+            Category is required
             </div>
-      </mat-form-field>
+        </div>
+    </mat-form-field>
 
       <mat-form-field appearance="fill">
           <mat-label>Content</mat-label>

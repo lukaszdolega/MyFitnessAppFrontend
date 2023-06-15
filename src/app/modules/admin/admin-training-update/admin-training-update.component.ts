@@ -27,7 +27,7 @@ export class AdminTrainingUpdateComponent implements OnInit {
 
     this.trainingForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(4)]],
-      category: ['', [Validators.required, Validators.minLength(4)]],
+      categoryId: ['', [Validators.required]],
       content: ['', [Validators.required, Validators.minLength(4)]],
       level: ['', [Validators.required, Validators.minLength(4)]],
       slug: ['', [Validators.required, Validators.minLength(4)]]
@@ -44,7 +44,7 @@ export class AdminTrainingUpdateComponent implements OnInit {
     let id = Number(this.router.snapshot.params['id']);
     this.adminTrainingUpdateService.savePost(id, {
       name: this.trainingForm.get('name')?.value,
-      category: this.trainingForm.get('category')?.value,
+      categoryId: this.trainingForm.get('categoryId')?.value,
       content: this.trainingForm.get('content')?.value,
       level: this.trainingForm.get('level')?.value,
       slug: this.trainingForm.get('slug')?.value,
@@ -57,7 +57,7 @@ export class AdminTrainingUpdateComponent implements OnInit {
   private mapFormValues(training: AdminTrainingUpdate): void {
     return this.trainingForm.setValue({
       name: training.name,
-      category: training.category,
+      categoryId: training.categoryId,
       content: training.content,
       level: training.level,
       slug: training.slug
