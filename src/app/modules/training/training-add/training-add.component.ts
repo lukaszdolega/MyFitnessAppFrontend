@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TrainingAddService } from './training-add.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AdminCategoryNameDto } from '../../admin/admin-training-form/adminCategoryNameDto';
+import { AdminCategoryNameDto } from '../../admin/common/dto/adminCategoryNameDto';
 import { FormCategoryService } from '../../admin/admin-training-form/form-category.service';
 
 @Component({

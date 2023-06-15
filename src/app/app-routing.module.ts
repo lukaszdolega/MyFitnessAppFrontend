@@ -12,6 +12,9 @@ import { AdminTrainingUpdateComponent } from './modules/admin/admin-training-upd
 import { AdminTrainingAddComponent } from './modules/admin/admin-training-add/admin-training-add.component';
 import { TrainingAddComponent } from './modules/training/training-add/training-add.component';
 import { TrainingDetailsComponent } from './modules/training-details/training-details.component';
+import { AdminCategoryComponent } from './modules/admin/admin-category/admin-category.component';
+import { AdminCategoryAddComponent } from './modules/admin/admin-category/admin-category-add/admin-category-add.component';
+import { AdminCategoryUpdateComponent } from './modules/admin/admin-category/admin-category-update/admin-category-update.component';
 
 const routes: Routes = [
   {
@@ -32,7 +35,10 @@ const routes: Routes = [
         {path: 'admin', component: AdminComponent},
         {path: 'admin/trainings', component: AdminTrainingComponent},
         {path: 'admin/trainings/update/:id', component: AdminTrainingUpdateComponent},
-        {path: 'admin/trainings/add', component: AdminTrainingAddComponent}
+        {path: 'admin/trainings/add', component: AdminTrainingAddComponent},
+        {path: 'admin/categories', component: AdminCategoryComponent},
+        {path: 'admin/categories/add', component: AdminCategoryAddComponent},
+        {path: 'admin/categories/update/:id', component: AdminCategoryUpdateComponent}
       ]
     }
   ];
