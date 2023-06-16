@@ -36,7 +36,7 @@ import { FormCategoryService } from './form-category.service';
         <mat-form-field appearance="fill">
             <mat-label>Category</mat-label>
             <mat-select formControlName="categoryId">
-                <mat-option *ngFor="let el of categories" [value]="1">
+                <mat-option *ngFor="let el of categories" [value]="el.id">
                 {{el.name}}
                 </mat-option>
             </mat-select>

@@ -1,1 +1,26 @@
-<p>category works!</p>
+<h1>Category: {{categoryTrainings?.category?.name}}</h1>
+<p>{{categoryTrainings?.category?.description}}</p>
+<mat-card *ngFor="let training of categoryTrainings?.trainings?.content">
+    <div flexLayout="row">
+        <div flexLayout="column" fxFlex class="trainingName">
+            <mat-card-title><a routerLink="{{'/trainings/' + training.slug}}">{{training.name}}</a></mat-card-title>
+            <mat-card-subtitle>{{training.category}}</mat-card-subtitle>
+        </div>
+        <div>
+            <div class="trainingLevel">{{training.level}}</div>
+        </div>
+    </div>
+    <mat-card-actions align="end" fxLayoutGap="10">
+        <button mat-flat-button color="primary" routerLink="{{'/trainings/' + training.slug}}">Details</button>
+    </mat-card-actions>
+</mat-card>
+
+<ng-container *ngIf="categoryTrainings && categoryTrainings.trainings">
+    <mat-paginator *ngIf="categoryTrainings.trainings.totalElements > 0"
+                   [length]="categoryTrainings.trainings.totalElements"
+                   [pageSize]="10"
+                   [pageSizeOptions]="[10, 25, 50]"
+                   aria-label="Choose page"
+                   (page)="onPageChange($event)">
+    </mat-paginator>
+  </ng-container>
