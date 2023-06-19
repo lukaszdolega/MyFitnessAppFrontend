@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Training } from './model/training';
+import { Training } from '../common/model/training';
 import { TrainingService } from './training.service';
-import { Page } from 'src/app/shared/model/page';
+import { Page } from 'src/app/modules/common/model/page';
 import { PageEvent } from '@angular/material/paginator';
 
 @Component({

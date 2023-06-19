@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { AdminCategoryNameDto } from '../common/dto/adminCategoryNameDto';
 import { AdminCategoryService } from './admin-category.service';
-import { AdminConfirmDialogService } from '../admin-confirm-dialog/admin-confirm-dialog.service';
+import { AdminConfirmDialogService } from '../common/service/admin-confirm-dialog.service';
 
 @Component({
   selector: 'app-admin-category',

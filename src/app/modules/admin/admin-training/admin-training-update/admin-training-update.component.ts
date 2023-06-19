@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminTrainingUpdate } from './model/adminTrainingUpdate';
+import { AdminTrainingUpdate } from '../model/adminTrainingUpdate';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AdminTrainingUpdateService } from './admin-training-update.service';

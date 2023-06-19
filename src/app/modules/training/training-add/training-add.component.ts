@@ -4,7 +4,7 @@ import { TrainingAddService } from './training-add.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AdminCategoryNameDto } from '../../admin/common/dto/adminCategoryNameDto';
-import { FormCategoryService } from '../../admin/admin-training-form/form-category.service';
+import { FormCategoryService } from '../../admin/admin-training/admin-training-form/form-category.service';
 
 @Component({
   selector: 'app-training-add',

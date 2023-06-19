@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Training } from './model/training';
+import { Training } from '../common/model/training';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Page } from 'src/app/shared/model/page';
+import { Page } from 'src/app/modules/common/model/page';
 
 @Injectable({
   providedIn: 'root'

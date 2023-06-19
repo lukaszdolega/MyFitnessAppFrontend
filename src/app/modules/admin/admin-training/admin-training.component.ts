@@ -5,7 +5,7 @@ import { AdminTraining } from './model/adminTraining';
 import { AdminTrainingService } from './admin-training.service';
 import { startWith, switchMap } from 'rxjs';
 import { MatTable } from '@angular/material/table';
-import { AdminConfirmDialogService } from '../admin-confirm-dialog/admin-confirm-dialog.service';
+import { AdminConfirmDialogService } from '../common/service/admin-confirm-dialog.service';
 
 @Component({
   selector: 'app-admin-training',
@@ -16,7 +16,7 @@ export class AdminTrainingComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatTable) table!: MatTable<any>;
 
-  displayedColumns: string[] = ["id", "name", "category", "content", "level", "actions"]
+  displayedColumns: string[] = ["id", "name", "content", "level", "actions"]
   totalElements: number = 0;
   data: AdminTraining[] = [];
 

@@ -1,8 +1,8 @@
-import { Training } from "../../training/model/training";
+import { Training } from "../../common/model/training";
 
 export interface Category{
     name: string,
     description: string,
     slug : string,
-    product: Array<Training>
+    training: Array<Training>
 }

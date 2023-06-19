@@ -1,5 +1,5 @@
-import { Page } from "src/app/shared/model/page";
-import { Training } from "../../training/model/training";
+import { Page } from "src/app/modules/common/model/page";
+import { Training } from "../../common/model/training";
 import { Category } from "./category";
 
 export interface CategoryTrainings{

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AdminTrainingUpdate } from '../admin-training-update/model/adminTrainingUpdate';
+import { AdminTrainingUpdate } from '../model/adminTrainingUpdate';
 import { Observable } from 'rxjs';
 
 @Injectable({
