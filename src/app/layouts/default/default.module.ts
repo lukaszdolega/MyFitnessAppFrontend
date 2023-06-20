@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TrainingDetailsComponent } from 'src/app/modules/training-details/training-details.component';
 import { CategoryComponent } from 'src/app/modules/category/category.component';
 import { TransformationComponent } from 'src/app/modules/transformation/transformation.component';
+import { TransformationAddComponent } from 'src/app/modules/transformation/transformation-add/transformation-add.component';
 
 
 
@@ -22,7 +23,8 @@ import { TransformationComponent } from 'src/app/modules/transformation/transfor
     TrainingAddComponent,
     TrainingDetailsComponent,
     CategoryComponent,
-    TransformationComponent
+    TransformationComponent,
+    TransformationAddComponent
   ],
   imports: [
     CommonModule,

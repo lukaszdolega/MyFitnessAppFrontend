@@ -1,0 +1,30 @@
+<form fxLayout="column" [formGroup]="transformationForm" (submit)="submit()">
+    <mat-form-field appearance="fill">
+        <mat-label>Weight Before</mat-label>
+        <input matInput type="number" placeholder="Enter weight before" formControlName="weightBefore">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Weight After</mat-label>
+        <input matInput type="number" placeholder="Enter weight after" formControlName="weightAfter">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Image Before</mat-label>
+        <input matInput placeholder="Enter image URL before" formControlName="imageBefore">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Image After</mat-label>
+        <input matInput placeholder="Enter image URL after" formControlName="imageAfter">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Duration</mat-label>
+        <input matInput type="number" placeholder="Enter duration" formControlName="duration">
+    </mat-form-field>
+
+    <div fxLayoutAlign="end">
+        <button mat-flat-button color="primary">Save</button>
+    </div>
+
