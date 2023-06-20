@@ -25,7 +25,7 @@ export class AdminReviewComponent implements OnInit {
   }
 
   confirmModerate(element: AdminReview) {
-    this.dialogService.openConfirmDialog('Czy chcesz zatwierdzić opinię?')
+    this.dialogService.openConfirmDialog('Do you want to confirm that review?')
       .afterClosed()
       .subscribe(result => {
         if (result) {
@@ -41,7 +41,7 @@ export class AdminReviewComponent implements OnInit {
   }
 
   confirmDelete(element: AdminReview) {
-    this.dialogService.openConfirmDialog('Czy chcesz usunąć tę opinię?')
+    this.dialogService.openConfirmDialog('Do you want to delete that review?')
     .afterClosed()
     .subscribe(result => {
       if (result) {
