@@ -1,5 +1,5 @@
 <h1>Transformations</h1>
-<mat-card *ngFor="let transformation of transformations">
+<mat-card *ngFor="let transformation of page?.content">
   <div fxLayout="row">
     <div fxLayout="column" fxFlex>
       <mat-card-title>Weight: {{transformation.weightBefore}}kg - {{transformation.weightAfter}}kg</mat-card-title>
@@ -11,3 +11,11 @@
     </div>
   </div>
 </mat-card>
+
+<mat-paginator *ngIf="page && page.totalElements > 0"
+    [length]="page.totalElements"
+     [pageSize]="10"
+     [pageSizeOptions]="[10, 25, 50, 100]"
+     aria-label="Choose page"
+     (page)="onPageEvent($event)">
+</mat-paginator>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Transformation } from './model/transformation';
 import { TransformationService } from './transformation.service';
+import { Page } from '../common/model/page';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-transformation',
@@ -9,8 +11,8 @@ import { TransformationService } from './transformation.service';
 })
 export class TransformationComponent implements OnInit {
 
-  transformations: Transformation[] = [];
-
+  page?: Page<Transformation>; 
+ 
   constructor(private transformationService: TransformationService) { }
 
   ngOnInit(): void {
@@ -18,7 +20,15 @@ export class TransformationComponent implements OnInit {
   }
 
   getTransformations() {
-    this.transformationService.getTransformations()
-    .subscribe(transformations => this.transformations = transformations);
+    this.getTransformationPage(0, 10);
+  }
+  
+  onPageEvent(event: PageEvent){
+    this.getTransformationPage(event.pageIndex, event.pageSize);
+  }
+  
+  private getTransformationPage(page: number, size: number) {
+    this.transformationService.getTransformations(page, size)
+      .subscribe(page => this.page = page);
   }
 }
