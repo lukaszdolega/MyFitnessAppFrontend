@@ -1,0 +1,13 @@
+<h1>Transformations</h1>
+<mat-card *ngFor="let transformation of transformations">
+  <div fxLayout="row">
+    <div fxLayout="column" fxFlex>
+      <mat-card-title>Weight: {{transformation.weightBefore}}kg - {{transformation.weightAfter}}kg</mat-card-title>
+      <div fxLayout="row">
+        <img [src]="transformation.imageBefore || '/assets/image-placeholder.png'" mat-card-lg-image class="transformationImage">
+        <img [src]="transformation.imageAfter || '/assets/image-placeholder.png'" mat-card-lg-image class="transformationImage">
+      </div>
+      <mat-card-subtitle>Duration: {{transformation.duration}} days</mat-card-subtitle>
+    </div>
+  </div>
+</mat-card>

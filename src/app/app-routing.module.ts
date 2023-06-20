@@ -17,6 +17,7 @@ import { AdminCategoryAddComponent } from './modules/admin/admin-category/admin-
 import { AdminCategoryUpdateComponent } from './modules/admin/admin-category/admin-category-update/admin-category-update.component';
 import { CategoryComponent } from './modules/category/category.component';
 import { AdminReviewComponent } from './modules/admin/admin-review/admin-review.component';
+import { TransformationComponent } from './modules/transformation/transformation.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,8 @@ const routes: Routes = [
       {path: 'trainings/add', component: TrainingAddComponent},
       {path: 'trainings/:slug', component: TrainingDetailsComponent},
       {path: 'categories/:slug', component: CategoryComponent},
+      {path: 'transformations', component: TransformationComponent},
+
     ]
   },
   {

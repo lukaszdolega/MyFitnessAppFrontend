@@ -10,6 +10,7 @@ import { TrainingAddComponent } from 'src/app/modules/training/training-add/trai
 import { ReactiveFormsModule } from '@angular/forms';
 import { TrainingDetailsComponent } from 'src/app/modules/training-details/training-details.component';
 import { CategoryComponent } from 'src/app/modules/category/category.component';
+import { TransformationComponent } from 'src/app/modules/transformation/transformation.component';
 
 
 
@@ -20,7 +21,8 @@ import { CategoryComponent } from 'src/app/modules/category/category.component';
     TrainingComponent,
     TrainingAddComponent,
     TrainingDetailsComponent,
-    CategoryComponent
+    CategoryComponent,
+    TransformationComponent
   ],
   imports: [
     CommonModule,
