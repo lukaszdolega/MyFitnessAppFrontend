@@ -1,30 +1,41 @@
 <form fxLayout="column" [formGroup]="transformationForm" (submit)="submit()">
     <mat-form-field appearance="fill">
-        <mat-label>Weight Before</mat-label>
-        <input matInput type="number" placeholder="Enter weight before" formControlName="weightBefore">
+      <mat-label>Weight Before</mat-label>
+      <input matInput type="number" placeholder="Enter weight before" formControlName="weightBefore">
+      <mat-error *ngIf="transformationForm.get('weightBefore')?.hasError('required')">Weight Before is required</mat-error>
+      <mat-error *ngIf="transformationForm.get('weightBefore')?.hasError('min')">Weight Before must be greater than or equal to 1</mat-error>
     </mat-form-field>
-
+  
     <mat-form-field appearance="fill">
-        <mat-label>Weight After</mat-label>
-        <input matInput type="number" placeholder="Enter weight after" formControlName="weightAfter">
+      <mat-label>Weight After</mat-label>
+      <input matInput type="number" placeholder="Enter weight after" formControlName="weightAfter">
+      <mat-error *ngIf="transformationForm.get('weightAfter')?.hasError('required')">Weight After is required</mat-error>
+      <mat-error *ngIf="transformationForm.get('weightAfter')?.hasError('min')">Weight After must be greater than or equal to 1</mat-error>
     </mat-form-field>
-
+  
     <mat-form-field appearance="fill">
-        <mat-label>Image Before</mat-label>
-        <input matInput placeholder="Enter image URL before" formControlName="imageBefore">
+      <mat-label>Image Before</mat-label>
+      <input matInput placeholder="Enter image URL before" formControlName="imageBefore">
+      <mat-error *ngIf="transformationForm.get('imageBefore')?.hasError('required')">Image Before is required</mat-error>
+      <mat-error *ngIf="transformationForm.get('imageBefore')?.hasError('minlength')">Image Before must be at least 4 characters long</mat-error>
     </mat-form-field>
-
+  
     <mat-form-field appearance="fill">
-        <mat-label>Image After</mat-label>
-        <input matInput placeholder="Enter image URL after" formControlName="imageAfter">
+      <mat-label>Image After</mat-label>
+      <input matInput placeholder="Enter image URL after" formControlName="imageAfter">
+      <mat-error *ngIf="transformationForm.get('imageAfter')?.hasError('required')">Image After is required</mat-error>
+      <mat-error *ngIf="transformationForm.get('imageAfter')?.hasError('minlength')">Image After must be at least 4 characters long</mat-error>
     </mat-form-field>
-
+  
     <mat-form-field appearance="fill">
-        <mat-label>Duration</mat-label>
-        <input matInput type="number" placeholder="Enter duration" formControlName="duration">
+      <mat-label>Duration</mat-label>
+      <input matInput type="number" placeholder="Enter duration" formControlName="duration">
+      <mat-error *ngIf="transformationForm.get('duration')?.hasError('required')">Duration is required</mat-error>
+      <mat-error *ngIf="transformationForm.get('duration')?.hasError('min')">Duration must be greater than or equal to 1</mat-error>
     </mat-form-field>
-
+  
     <div fxLayoutAlign="end">
-        <button mat-flat-button color="primary">Save</button>
+      <button mat-flat-button color="primary">Save</button>
     </div>
-
+  </form>
+  

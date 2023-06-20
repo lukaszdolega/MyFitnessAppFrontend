@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TransformationAddService } from './transformation-add.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -20,11 +20,11 @@ export class TransformationAddComponent {
 
   ngOnInit(): void {
     this.transformationForm = this.formBuilder.group({
-      weightBefore: [''],
-      weightAfter: [''],
-      imageBefore: [''],
-      imageAfter: [''],
-      duration: ['']
+      weightBefore: ['', [Validators.required, Validators.min(1)]],
+      weightAfter: ['', [Validators.required, Validators.min(1)]],
+      imageBefore: ['', [Validators.required, Validators.minLength(4)]],
+      imageAfter: ['', [Validators.required, Validators.minLength(4)]],
+      duration: ['', [Validators.required, Validators.min(1)]],
     });
   }
 
