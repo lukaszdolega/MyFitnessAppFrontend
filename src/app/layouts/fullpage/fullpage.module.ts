@@ -5,18 +5,24 @@ import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { LoginComponent } from 'src/app/modules/login/login.component';
+import { TransformationComponent } from 'src/app/modules/transformation/transformation.component';
+import { TransformationAddComponent } from 'src/app/modules/transformation/transformation-add/transformation-add.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     FullpageComponent,
-    LoginComponent
+    LoginComponent,
+    TransformationComponent,
+    TransformationAddComponent
   ]
   ,
   imports: [
     CommonModule,
     RouterModule,
     FlexLayoutModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule,
   ]
 })
 export class FullpageModule { }

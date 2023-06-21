@@ -22,9 +22,7 @@ import { TransformationAddComponent } from 'src/app/modules/transformation/trans
     TrainingComponent,
     TrainingAddComponent,
     TrainingDetailsComponent,
-    CategoryComponent,
-    TransformationComponent,
-    TransformationAddComponent
+    CategoryComponent
   ],
   imports: [
     CommonModule,

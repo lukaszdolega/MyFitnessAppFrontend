@@ -28,15 +28,13 @@ const routes: Routes = [
       {path: 'trainings/add', component: TrainingAddComponent},
       {path: 'trainings/:slug', component: TrainingDetailsComponent},
       {path: 'categories/:slug', component: CategoryComponent},
-      {path: 'transformations', component: TransformationComponent},
-      {path: 'transformations/add', component: TransformationAddComponent},
-
-
     ]
   },
   {
       path:'', component: FullpageComponent, children: [
-        {path: 'login', component: LoginComponent}
+        {path: 'login', component: LoginComponent},
+        {path: 'transformations', component: TransformationComponent},
+        {path: 'transformations/add', component: TransformationAddComponent},
       ]
     },
     {

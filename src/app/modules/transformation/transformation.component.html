@@ -1,25 +1,36 @@
 <h1>Transformations <button mat-raised-button color="accent" routerLink="/transformations/add">Add your transformation <mat-icon>add</mat-icon></button></h1>
-<mat-card *ngFor="let transformation of page?.content">
-  <div fxLayout="row">
-    <div fxLayout="column" fxFlex>
-      <mat-card-title>Weight: {{transformation.weightBefore}}kg - {{transformation.weightAfter}}kg</mat-card-title>
-      <!-- <div fxLayout="row">
-        <div class="transformationImage">
-            <span>Image Before: {{transformation.imageBefore}}</span>
+
+
+<mat-card *ngFor="let transformation of page?.content" class="transformationCard">
+  <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="start center">
+    <div>
+      <div class="transformationTitle" fxFlexLayout="row">Before: {{transformation.weightBefore}}kg</div>
+      <div class="imageContainer" fxFlexLayout="row">
+        <div class="imageWrapper">
+          <img *ngIf="!transformation?.imageBefore" src="/assets/image-placeholder.png"  alt="Image Before" class="fullWidthImage">
+          <img *ngIf="transformation?.imageBefore" [src]="'/api/data/images/' + transformation?.imageBefore"   alt="Image Before" class="fullWidthImage">
         </div>
-        <div class="transformationImage">
-            <span>Image After: {{transformation.imageAfter}}</span>
-        </div>
-    </div> -->
-      <mat-card-subtitle>Duration: {{transformation.duration}} days</mat-card-subtitle>
+      </div>
     </div>
+    <div>
+      <div class="transformationTitle" fxFlexLayout="row">After: {{transformation.weightAfter}}kg</div>
+      <div class="imageContainer" fxFlexLayout="row">
+        <div class="imageWrapper">
+          <img *ngIf="!transformation?.imageAfter" src="/assets/image-placeholder.png" alt="Image After" class="fullWidthImage">
+          <img *ngIf="transformation?.imageAfter" [src]="'/api/data/images/' + transformation?.imageAfter" alt="Image After" class="fullWidthImage">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div fxLayoutAlign="center">
+    <mat-card-subtitle>Duration: {{transformation.duration}} days</mat-card-subtitle>
   </div>
 </mat-card>
 
 <mat-paginator *ngIf="page && page.totalElements > 0"
-    [length]="page.totalElements"
-     [pageSize]="10"
-     [pageSizeOptions]="[10, 25, 50, 100]"
-     aria-label="Choose page"
-     (page)="onPageEvent($event)">
+  [length]="page.totalElements"
+  [pageSize]="10"
+  [pageSizeOptions]="[10, 25, 50, 100]"
+  aria-label="Choose page"
+  (page)="onPageEvent($event)">
 </mat-paginator>
