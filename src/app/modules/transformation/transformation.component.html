@@ -1,14 +1,13 @@
 <h1>Transformations <button mat-raised-button color="accent" routerLink="/transformations/add">Add your transformation <mat-icon>add</mat-icon></button></h1>
 
-
 <mat-card *ngFor="let transformation of page?.content" class="transformationCard">
   <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="start center">
     <div>
       <div class="transformationTitle" fxFlexLayout="row">Before: {{transformation.weightBefore}}kg</div>
       <div class="imageContainer" fxFlexLayout="row">
         <div class="imageWrapper">
-          <img *ngIf="!transformation?.imageBefore" src="/assets/image-placeholder.png"  alt="Image Before" class="fullWidthImage">
-          <img *ngIf="transformation?.imageBefore" [src]="'/api/data/images/' + transformation?.imageBefore"   alt="Image Before" class="fullWidthImage">
+          <img *ngIf="!transformation?.imageBefore" src="/assets/image-placeholder.png" alt="Image Before" class="fullWidthImage">
+          <img *ngIf="transformation?.imageBefore" [src]="'/api/data/images/' + transformation?.imageBefore" alt="Image Before" class="fullWidthImage" (error)="handleImageError($event)">
         </div>
       </div>
     </div>
@@ -17,7 +16,7 @@
       <div class="imageContainer" fxFlexLayout="row">
         <div class="imageWrapper">
           <img *ngIf="!transformation?.imageAfter" src="/assets/image-placeholder.png" alt="Image After" class="fullWidthImage">
-          <img *ngIf="transformation?.imageAfter" [src]="'/api/data/images/' + transformation?.imageAfter" alt="Image After" class="fullWidthImage">
+          <img *ngIf="transformation?.imageAfter" [src]="'/api/data/images/' + transformation?.imageAfter" alt="Image After" class="fullWidthImage" (error)="handleImageError($event)">
         </div>
       </div>
     </div>

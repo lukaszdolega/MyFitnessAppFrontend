@@ -31,4 +31,8 @@ export class TransformationComponent implements OnInit {
     this.transformationService.getTransformations(page, size)
       .subscribe(page => this.page = page);
   }
+
+  handleImageError(event: any) {
+    event.target.src = '/assets/image-placeholder.png';
+  }
 }
