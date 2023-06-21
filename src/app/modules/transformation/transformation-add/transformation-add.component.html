@@ -14,20 +14,6 @@
     </mat-form-field>
   
     <mat-form-field appearance="fill">
-      <mat-label>Image Before</mat-label>
-      <input matInput placeholder="Enter image URL before" formControlName="imageBefore">
-      <mat-error *ngIf="transformationForm.get('imageBefore')?.hasError('required')">Image Before is required</mat-error>
-      <mat-error *ngIf="transformationForm.get('imageBefore')?.hasError('minlength')">Image Before must be at least 4 characters long</mat-error>
-    </mat-form-field>
-  
-    <mat-form-field appearance="fill">
-      <mat-label>Image After</mat-label>
-      <input matInput placeholder="Enter image URL after" formControlName="imageAfter">
-      <mat-error *ngIf="transformationForm.get('imageAfter')?.hasError('required')">Image After is required</mat-error>
-      <mat-error *ngIf="transformationForm.get('imageAfter')?.hasError('minlength')">Image After must be at least 4 characters long</mat-error>
-    </mat-form-field>
-  
-    <mat-form-field appearance="fill">
       <mat-label>Duration</mat-label>
       <input matInput type="number" placeholder="Enter duration" formControlName="duration">
       <mat-error *ngIf="transformationForm.get('duration')?.hasError('required')">Duration is required</mat-error>
@@ -38,4 +24,15 @@
       <button mat-flat-button color="primary">Save</button>
     </div>
   </form>
+  <form [formGroup]="imageBeforeForm" (submit)="uploadImageBefore()">
+    <input type="file" [accept]="requiredFileTypes" (change)="onImageBeforeChange($event)">
+    <button mat-flat-button color="basic" class="upload-button">Upload Before Image</button>
+  </form>
   
+  <form [formGroup]="imageAfterForm" (submit)="uploadImageAfter()">
+    <input type="file" [accept]="requiredFileTypes" (change)="onImageAfterChange($event)">
+    <button mat-flat-button class="upload-button">Upload After Image</button>
+  </form>
+  
+  <img *ngIf="imageBefore" src="{{'/api/data/images/' + imageBefore}}" width="200" class="upload-image">
+  <img *ngIf="imageAfter" src="{{'/api/data/images/' + imageAfter}}" width="200" class="upload-image">
