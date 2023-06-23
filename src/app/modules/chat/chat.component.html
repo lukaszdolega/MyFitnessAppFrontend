@@ -1,0 +1,23 @@
+<form fxLayout="column" [formGroup]="chatForm" (ngSubmit)="submit()" class="chat-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Question</mat-label>
+      <input matInput formControlName="question" placeholder="Wpisz pytanie..." required>
+      <mat-error *ngIf="chatForm.controls['question'].invalid && chatForm.controls['question'].touched">
+        Question is required
+      </mat-error>
+    </mat-form-field>
+  
+    <div fxLayoutAlign="end">
+      <button mat-raised-button color="primary">Send question</button>
+    </div>
+  </form>
+  
+  <div *ngIf="getLoaderVisibility()" class="loader-container">
+    <div class="loader"></div>
+  </div>
+  
+  <div *ngIf="response" class="response-container">
+    <div>
+     {{ response }}
+    </div>
+  </div>

@@ -9,10 +9,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { TransformationComponent } from './modules/transformation/transformation.component';
 import { TransformationAddComponent } from './modules/transformation/transformation-add/transformation-add.component';
+import { ChatComponent } from './modules/chat/chat.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

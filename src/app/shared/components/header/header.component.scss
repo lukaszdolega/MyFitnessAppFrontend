@@ -1,7 +1,7 @@
 @import '../../../../variables.scss';
 :host{
     background: $darkgray;
-    padding: 20px;
+    padding: 35px;
 }
 .logo {
     font-size: 22px;
@@ -10,3 +10,27 @@
 .logoIcon{
     font-size: 30px;
 }
+.button-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  
+  .hit-tooltip {
+    position: absolute;
+    top: -30px;
+    left: 0;
+    padding: 5px 10px;
+    background-color: #26960f;
+    color: #fff;
+    font-size: 12px;
+
+    border-radius: 4px;
+  }
+  
+  .button-text {
+    margin-left: 5px;
+  }
+  
+  

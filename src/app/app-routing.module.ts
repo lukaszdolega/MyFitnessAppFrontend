@@ -19,6 +19,7 @@ import { CategoryComponent } from './modules/category/category.component';
 import { AdminReviewComponent } from './modules/admin/admin-review/admin-review.component';
 import { TransformationComponent } from './modules/transformation/transformation.component';
 import { TransformationAddComponent } from './modules/transformation/transformation-add/transformation-add.component';
+import { ChatComponent } from './modules/chat/chat.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,7 @@ const routes: Routes = [
         {path: 'login', component: LoginComponent},
         {path: 'transformations', component: TransformationComponent},
         {path: 'transformations/add', component: TransformationAddComponent},
+        {path: 'chats', component: ChatComponent},
       ]
     },
     {
