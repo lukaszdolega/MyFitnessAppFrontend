@@ -5,7 +5,8 @@ import jwt_decode from 'jwt-decode';
     providedIn: 'root'
   })
   export class JwtService {
-  
+    adminAccess = false;
+
     constructor() { }
   
     setToken(token: string) {
@@ -25,6 +26,24 @@ import jwt_decode from 'jwt-decode';
       let tokenDecoded = jwt_decode<any>(token);
       return (tokenDecoded.exp * 1000) > new Date().getTime();
     }
+
+    public setAdminAccess(adminAccess: boolean) {
+      this.adminAccess = adminAccess;
+    }
+  
+    public getAdminAccess(): boolean{
+      return this.adminAccess;
+    }
+
+    removeToken(): void {
+      localStorage.removeItem("token");
+    }
+  
+    logout(): void {
+      this.removeToken();
+      this.setAdminAccess(false);
+    }
+    
   
   }
   
