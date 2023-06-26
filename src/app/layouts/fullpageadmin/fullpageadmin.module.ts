@@ -16,7 +16,6 @@ import { AdminCategoryUpdateComponent } from 'src/app/modules/admin/admin-catego
 import { AdminCategoryFormConponent } from 'src/app/modules/admin/admin-category/admin-category-form/admin-category-form.component';
 import { AdminConfirmDialogComponent } from 'src/app/modules/admin/common/component/admin-confirm-dialog/admin-confirm-dialog.component';
 import { AdminReviewComponent } from 'src/app/modules/admin/admin-review/admin-review.component';
-
 @NgModule({
   declarations: [
     FullpageadminComponent,

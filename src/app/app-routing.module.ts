@@ -20,6 +20,10 @@ import { AdminReviewComponent } from './modules/admin/admin-review/admin-review.
 import { TransformationComponent } from './modules/transformation/transformation.component';
 import { TransformationAddComponent } from './modules/transformation/transformation-add/transformation-add.component';
 import { ChatComponent } from './modules/chat/chat.component';
+import { AdminLoginComponent } from './modules/admin/admin-login/admin-login.component';
+import { FullpageadminemptyComponent } from './layouts/fullpageadminempty/fullpageadminempty.component';
+import { AdminAuthorizeGuard } from './modules/admin/common/guard/adminAuthorizeGuard';
+
 
 const routes: Routes = [
   {
@@ -42,13 +46,18 @@ const routes: Routes = [
     {
       path:'', component: FullpageadminComponent, children: [
         {path: 'admin', component: AdminComponent},
-        {path: 'admin/trainings', component: AdminTrainingComponent},
-        {path: 'admin/trainings/update/:id', component: AdminTrainingUpdateComponent},
-        {path: 'admin/trainings/add', component: AdminTrainingAddComponent},
-        {path: 'admin/categories', component: AdminCategoryComponent},
-        {path: 'admin/categories/add', component: AdminCategoryAddComponent},
-        {path: 'admin/categories/update/:id', component: AdminCategoryUpdateComponent},
-        {path: 'admin/reviews', component: AdminReviewComponent},
+        {path: 'admin/trainings', component: AdminTrainingComponent, canActivate: [AdminAuthorizeGuard]},
+        {path: 'admin/trainings/update/:id', component: AdminTrainingUpdateComponent, canActivate: [AdminAuthorizeGuard]},
+        {path: 'admin/trainings/add', component: AdminTrainingAddComponent, canActivate: [AdminAuthorizeGuard]},
+        {path: 'admin/categories', component: AdminCategoryComponent, canActivate: [AdminAuthorizeGuard]},
+        {path: 'admin/categories/add', component: AdminCategoryAddComponent, canActivate: [AdminAuthorizeGuard]},
+        {path: 'admin/categories/update/:id', component: AdminCategoryUpdateComponent, canActivate: [AdminAuthorizeGuard]},
+        {path: 'admin/reviews', component: AdminReviewComponent, canActivate: [AdminAuthorizeGuard]},
+      ]
+    },
+    {
+      path:'', component: FullpageadminemptyComponent, children: [
+        {path: 'admin/login', component: AdminLoginComponent}
       ]
     }
   ];

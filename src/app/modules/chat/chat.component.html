@@ -1,7 +1,10 @@
+<div class="centered-text">
+    <h1>Your personal assistant. Ask any question.</h1>
+  </div>
 <form fxLayout="column" [formGroup]="chatForm" (ngSubmit)="submit()" class="chat-form">
     <mat-form-field appearance="fill">
       <mat-label>Question</mat-label>
-      <input matInput formControlName="question" placeholder="Wpisz pytanie..." required>
+      <input matInput formControlName="question" placeholder="Enter your question" required>
       <mat-error *ngIf="chatForm.controls['question'].invalid && chatForm.controls['question'].touched">
         Question is required
       </mat-error>
