@@ -29,7 +29,7 @@ import { LostPasswordComponent } from './modules/login/lost-password/lost-passwo
 const routes: Routes = [
   {
     path:'', component: DefaultComponent, children: [
-      {path: '', component: HomeComponent},
+      {path: '', redirectTo: '/home', pathMatch: 'full' },
       {path: 'trainings', component: TrainingComponent},
       {path: 'trainings/add', component: TrainingAddComponent},
       {path: 'trainings/:slug', component: TrainingDetailsComponent},
@@ -38,6 +38,7 @@ const routes: Routes = [
   },
   {
       path:'', component: FullpageComponent, children: [
+        {path: 'home', component: HomeComponent},
         {path: 'login', component: LoginComponent},
         {path: 'lostPassword', component: LostPasswordComponent},
         {path: 'lostPassword/:hash', component: LostPasswordComponent},
@@ -48,7 +49,7 @@ const routes: Routes = [
     },
     {
       path:'', component: FullpageadminComponent, children: [
-        {path: 'admin', component: AdminComponent},
+        {path: 'admin', component: AdminComponent, canActivate: [AdminAuthorizeGuard]},
         {path: 'admin/trainings', component: AdminTrainingComponent, canActivate: [AdminAuthorizeGuard]},
         {path: 'admin/trainings/update/:id', component: AdminTrainingUpdateComponent, canActivate: [AdminAuthorizeGuard]},
         {path: 'admin/trainings/add', component: AdminTrainingAddComponent, canActivate: [AdminAuthorizeGuard]},

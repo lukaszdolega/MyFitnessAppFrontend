@@ -10,6 +10,7 @@ import { TransformationAddComponent } from 'src/app/modules/transformation/trans
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChatComponent } from 'src/app/modules/chat/chat.component';
 import { LostPasswordComponent } from 'src/app/modules/login/lost-password/lost-password.component';
+import { HomeComponent } from 'src/app/modules/home/home.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LostPasswordComponent } from 'src/app/modules/login/lost-password/lost-
     TransformationComponent,
     TransformationAddComponent,
     ChatComponent,
-    LostPasswordComponent
+    LostPasswordComponent,
+    HomeComponent
   ]
   ,
   imports: [
