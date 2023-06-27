@@ -23,6 +23,7 @@ import { ChatComponent } from './modules/chat/chat.component';
 import { AdminLoginComponent } from './modules/admin/admin-login/admin-login.component';
 import { FullpageadminemptyComponent } from './layouts/fullpageadminempty/fullpageadminempty.component';
 import { AdminAuthorizeGuard } from './modules/admin/common/guard/adminAuthorizeGuard';
+import { LostPasswordComponent } from './modules/login/lost-password/lost-password.component';
 
 
 const routes: Routes = [
@@ -38,6 +39,8 @@ const routes: Routes = [
   {
       path:'', component: FullpageComponent, children: [
         {path: 'login', component: LoginComponent},
+        {path: 'lostPassword', component: LostPasswordComponent},
+        {path: 'lostPassword/:hash', component: LostPasswordComponent},
         {path: 'transformations', component: TransformationComponent},
         {path: 'transformations/add', component: TransformationAddComponent},
         {path: 'chats', component: ChatComponent},
