@@ -11,7 +11,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^16.0.0",
+    "@angular/animations": "^16.0.5",
     "@angular/cdk": "^16.0.4",
     "@angular/common": "^16.0.0",
     "@angular/compiler": "^16.0.0",
@@ -47,6 +47,6 @@
   },
   "engines": {
     "node": "v18.15.0",
-    "npm": "9.7.1"
+    "npm": "9.7.2"
   }
 }
